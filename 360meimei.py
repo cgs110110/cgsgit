@@ -1,10 +1,12 @@
 # _*_ coding:utf-8 _*_
+#爬取360meimei网站的爬虫
 import urllib
 import urllib2
 import re
 from lxml import etree
 import random
 import sys
+#下面代码用来防止中文编码出错问题
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -24,7 +26,7 @@ def allurl(url,headers):
             alllink = "http://www.360meimei.com" + link
             #print alllink
             allgirlurl(alllink,headers = headers)
-#获取所有美女的图片每一个html页面
+#获取所有美女每一个html页面
 def allgirlurl(url,headers):
     request = urllib2.Request(url,headers = headers)
     response = urllib2.urlopen(request).read()
